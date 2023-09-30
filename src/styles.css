@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+:root {
+  --primary-color: #03045e;
+  --secondary-color: '';
+
+  --tint-01: #b4d1ef;
+  --tint-02: #cde0f4;
+  --tint-03: #e6f0fa;
+  --shade-01: #011f3c;
+  --shade-02: #011428;
+  --shade-03: #000a14;
+}
+body {
+  background-color: #e6f0fa;
+}

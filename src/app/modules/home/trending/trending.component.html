@@ -1,0 +1,46 @@
+<div class="mt-5 mb-5 bg-white me-4 ms-4 p-4 rounded-3">
+  <div
+    *ngIf="!trending.length"
+    class="d-flex justify-content-center text-primary">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <p class="h3 mb-1 trending text-primary mb-3">Trending</p>
+  <div
+    id="carouselExampleSlidesOnly"
+    class="carousel slide hero-carousel"
+    data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <ul class="d-flex gap-4 justify-content-center">
+          <li *ngFor="let item of slising(0, 5)">
+            <app-movie-card [movie]="item"></app-movie-card>
+          </li>
+        </ul>
+      </div>
+      <div class="carousel-item">
+        <ul class="d-flex gap-4 justify-content-center">
+          <li *ngFor="let item of slising(5, 10)">
+            <app-movie-card [movie]="item"></app-movie-card>
+          </li>
+        </ul>
+      </div>
+      <div class="carousel-item">
+        <ul class="d-flex gap-4 justify-content-center">
+          <li *ngFor="let item of slising(10, 15)">
+            <app-movie-card [movie]="item"></app-movie-card>
+          </li>
+        </ul>
+      </div>
+      <div class="carousel-item">
+        <ul class="d-flex gap-4 justify-content-center">
+          <li *ngFor="let item of slising(15, 20)">
+            <app-movie-card [movie]="item"></app-movie-card>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

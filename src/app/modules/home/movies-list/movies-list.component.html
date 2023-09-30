@@ -1,0 +1,15 @@
+<div class="mt-5 mb-5 bg-white me-4 ms-4 p-4 rounded-3">
+  <div *ngIf="!popular" class="d-flex justify-content-center text-primary">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <ng-container *ngIf="popular">
+    <p class="h3 mb-1 popular text-primary mb-3">What's Popular</p>
+    <ul class="d-flex gap-4 justify-content-center flex-wrap">
+      <li *ngFor="let item of popular">
+        <app-movie-card [movie]="item"></app-movie-card>
+      </li></ul
+  ></ng-container>
+</div>

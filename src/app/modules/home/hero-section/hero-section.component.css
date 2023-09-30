@@ -1,0 +1,27 @@
+.hero-text :is(h1, p) {
+  background: rgb(57, 48, 205);
+  background: linear-gradient(
+    90deg,
+    rgba(57, 48, 205, 1) 0%,
+    rgba(3, 3, 89, 1) 48%,
+    rgba(0, 179, 215, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.search input {
+  background-color: var(--tint-02);
+  color: var(--shade-01);
+  height: 43px;
+  width: 60%;
+  transition: width 0.5s ease-in-out;
+}
+.search input:focus-visible {
+  width: 70%;
+}
+.search input::placeholder {
+  color: var(--shade-01);
+  opacity: 0.5;
+}

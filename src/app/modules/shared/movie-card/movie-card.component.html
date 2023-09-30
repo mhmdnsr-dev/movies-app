@@ -1,0 +1,41 @@
+<div class="card-container">
+  <div class="image mb-3">
+    <a [routerLink]="'/movie/' + movie.id">
+      <img
+        loading="lazy"
+        class="rounded-2"
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt="" />
+    </a>
+
+    <div class="rating">
+      <!--TODO: Rating circle progress  -->
+      <!-- <div class="progress blue">
+        <span class="progress-left">
+          <span class="progress-bar"></span>
+        </span>
+        <span class="progress-right">
+          <span class="progress-bar"></span>
+        </span>
+        <div class="progress-value">80%</div>
+      </div> -->
+    </div>
+    <div class="like">
+      <button class="bg-transparent">
+        <!-- You change to this color "#191bab" when user clicked -->
+        <i class="fa-solid fa-heart fa-2xl" style="color: #9bb4e1"></i>
+      </button>
+    </div>
+  </div>
+  <div class="content">
+    <p class="title mb-0 h6 mb-1">
+      <a
+        class="text-black-50 text-decoration-none"
+        [routerLink]="'/movie/' + movie.id"
+        title="The Wonderful Story of Henry Sugar"
+        >{{ movie.title }}</a
+      >
+    </p>
+    <p class="date mb-0">{{ movie.release_date }}</p>
+  </div>
+</div>

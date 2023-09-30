@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid pe-4 ps-4 pt-1 pb-1">
+    <a class="navbar-brand logo" routerLink="/"
+      ><i class="fa-solid fa-film fa-xl" style="color: #ffffff"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mb-2 mb-lg-0 w-100 align-items-center gap-5">
+        <li class="nav-item">
+          <a
+            style="color: #bdd6ea"
+            class="h6 text-decoration-none"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="/"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item ms-auto">
+          <a
+            style="color: #bdd6ea"
+            class="h6 text-decoration-none"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="wishlist">
+            Wishlist
+            <i class="fa-solid fa-heart fa-lg" style="color: #93d1e0"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            style="color: #bdd6ea"
+            class="h6 text-decoration-none"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="pricing"
+            >Pricing</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            style="color: #bdd6ea"
+            class="h6 text-decoration-none"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="about"
+            >About</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
