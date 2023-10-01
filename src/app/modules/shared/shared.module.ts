@@ -6,6 +6,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { WatchModule } from '../watch/watch.module';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule,WatchModule],
   exports: [HeaderComponent, FooterComponent, MovieCardComponent],
 })
 export class SharedModule {}
