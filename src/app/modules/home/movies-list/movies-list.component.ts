@@ -14,13 +14,18 @@ export class MoviesListComponent {
   totalPages!: number;
   movies: Movie[] = [];
   query!: string;
+  notFound: boolean = false;
 
   async ngOnInit() {
     this.moviesService.getQuery.subscribe(async (q: string) => {
       this.query = q;
       const data: TmdbRes = await this.getMovies();
+      !data.results.length ? (this.notFound = true) : (this.notFound = false);
+      console.log(data);
+      console.log(this.notFound);
       this.movies = data.results;
       this.totalPages = data.total_pages < 200 ? data.total_pages : 200;
+      this.page = 1;
     });
   }
 
@@ -41,7 +46,6 @@ export class MoviesListComponent {
       res = await fetch(
         `https://api.themoviedb.org/3/search/movie?query=${this.query}&api_key=0ccf26111048f92980b10d0b2f0c63cd&page=${page}`
       );
-      // return (await res.json()) as TmdbRes;
     } else {
       // `https://api.themoviedb.org/3/movie/movies?language=en-US&page=${page}`
       res = await fetch(

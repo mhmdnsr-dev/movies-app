@@ -33,8 +33,6 @@ export class TrendingComponent {
 
     const data: TmdbRes = await res.json();
     this.trending = data.results;
-
-    console.log('trending', data);
   }
 
   slising(s: number, e: number) {

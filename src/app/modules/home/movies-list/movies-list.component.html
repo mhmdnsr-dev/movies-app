@@ -1,13 +1,18 @@
 <div class="mt-5 mb-5 bg-white me-4 ms-4 p-4 rounded-3">
   <p class="h3 mb-1 popular text-primary mb-4">
-    {{ query ? 'You are saerch for: ' + query : "What's Popular" }}
+    {{ query ? 'You are search for: ' + query : "What's Popular" }}
   </p>
   <div
-    *ngIf="!movies.length"
+    *ngIf="!movies.length && !notFound"
     class="d-flex justify-content-center text-primary">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
+  </div>
+
+  <div *ngIf="notFound" class="d-flex justify-content-center text-danger mt-5">
+    <!-- If there is no movies -->
+    <p class="h3">Ooops, your search did not match any results</p>
   </div>
 
   <ng-container *ngIf="movies.length">
@@ -16,7 +21,7 @@
         <app-movie-card [movie]="item"></app-movie-card>
       </li></ul
   ></ng-container>
-  <nav aria-label="Page navigation example" class="pt-5">
+  <nav aria-label="Page navigation example" class="pt-5" *ngIf="!notFound">
     <ul class="pagination justify-content-center">
       <li class="page-item" ngClass="{{ page <= 1 ? 'disabled' : '' }}">
         <button class="page-link" (click)="paginationTo(page - 1)">
@@ -27,20 +32,33 @@
         <button class="page-link active">{{ page }}</button>
       </li>
       <li class="page-item">
-        <button class="page-link" (click)="paginationTo(page + 1)">
+        <button
+          class="page-link"
+          (click)="paginationTo(page + 1)"
+          ngClass="{{ page + 1 >= totalPages ? 'd-none' : '' }}">
           {{ page + 1 }}
         </button>
       </li>
       <li class="page-item">
-        <button class="page-link" (click)="paginationTo(page + 2)">
+        <button
+          class="page-link"
+          (click)="paginationTo(page + 2)"
+          ngClass="{{ page + 2 >= totalPages ? 'd-none' : '' }}">
           {{ page + 2 }}
         </button>
       </li>
       <li class="page-item">
-        <button class="page-link">...</button>
+        <button
+          class="page-link"
+          ngClass="{{ page >= totalPages ? 'd-none' : '' }}">
+          ...
+        </button>
       </li>
       <li class="page-item">
-        <button class="page-link" (click)="paginationTo(200)">
+        <button
+          class="page-link"
+          (click)="paginationTo(200)"
+          ngClass="{{ page >= totalPages ? 'd-none' : '' }}">
           {{ totalPages }}
         </button>
       </li>

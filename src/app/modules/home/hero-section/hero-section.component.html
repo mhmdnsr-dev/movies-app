@@ -17,7 +17,14 @@
         placeholder="Search"
         name="search"
         aria-label="Search" />
-      <button class="btn btn-outline-primary" type="submit">Search</button>
+      <button class="btn btn-outline-primary me-2" type="submit">Search</button>
+      <!-- <input type="reset" class="form-control me-2" /> -->
+      <button
+        (click)="resetQuery()"
+        class="btn btn-outline-danger"
+        type="reset">
+        Reset
+      </button>
     </form>
   </div>
 </div>

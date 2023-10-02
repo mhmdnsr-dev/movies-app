@@ -12,6 +12,10 @@ export class HeroSectionComponent {
 
   queryHandler() {
     this.moviesService.setQuery = this.query;
-    // this.query = '';
+  }
+
+  resetQuery() {
+    this.query = '';
+    this.moviesService.setQuery = '';
   }
 }
