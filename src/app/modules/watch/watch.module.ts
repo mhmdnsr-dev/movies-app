@@ -4,9 +4,11 @@ import { WatchListComponent } from './watch-list/watch-list.component';
 
 
 
+
 @NgModule({
   declarations: [
-    WatchListComponent
+    WatchListComponent,
+
   ],
   imports: [
     CommonModule
