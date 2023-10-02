@@ -9,8 +9,19 @@ import { Movie } from '../../shared/movie';
 })
 export class WatchListComponent {
   cartItems: Movie[] = [];
-  constructor(private cartElementViewService: CartElementViewService) {}
-  ngOnInit() {
+  constructor(private cartElementViewService: CartElementViewService) {
+  
+  }
+ngOnInit() {
+  this.cartItems = this.cartElementViewService.getArrayValue();
+  console.log('Cart Items:', this.cartItems);
+}
+  deleteItem(item: Movie) {
+    console.log('Delete item:', item);
+    this.cartElementViewService.deleteObject(item);
     this.cartItems = this.cartElementViewService.getArrayValue();
   }
+  
+  
+  
 }

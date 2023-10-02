@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Movie } from './shared/movie';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,20 @@ private arrayObj = new BehaviorSubject<any[]>([])
     const initialArray = storedItems ? JSON.parse(storedItems) : [];
     this.arrayObj = new BehaviorSubject<any[]>(initialArray);
    }
+   deleteObject(cartItem: Movie) {
+    const currentArray = this.arrayObj.value;
+    const updatedArray = currentArray.filter(item => item.id !== cartItem.id);
+  
+    this.arrayObj.next([...updatedArray]);
+    localStorage.setItem('cartItems', JSON.stringify(updatedArray));
+  
+    return updatedArray;
+  }
+  
+  
+  
+
+  
 
    addObject(cartItem: object) {
     const currentArray = this.arrayObj.value;
