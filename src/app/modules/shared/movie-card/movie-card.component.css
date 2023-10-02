@@ -18,12 +18,14 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  transform: translate(-20%, 25%);
+  z-index: 99;
 }
 .like {
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(25%, 50%);
+  transform: translate(20%, 30%);
   z-index: 99;
 }
 

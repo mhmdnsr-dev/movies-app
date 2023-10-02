@@ -7,6 +7,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,7 +18,28 @@ import { FormsModule } from '@angular/forms';
     NotFoundComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 16,
+      animation: false,
+      titleFontSize: '12',
+      unitsFontSize: '10',
+      backgroundColor: '#000',
+      titleColor: '#fff',
+      unitsColor: '#fff',
+      titleFontWeight: '600',
+      unitsFontWeight: '600',
+      showSubtitle: false,
+      outerStrokeWidth: 4,
+      showInnerStroke: false,
+      backgroundPadding: 2,
+      outerStrokeColor: '#1acb75',
+    }),
+  ],
   exports: [HeaderComponent, FooterComponent, MovieCardComponent, FormsModule],
 })
 export class SharedModule {}

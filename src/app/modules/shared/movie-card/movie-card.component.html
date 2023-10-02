@@ -1,5 +1,5 @@
 <div class="card-container">
-  <div class="image mb-3">
+  <div class="image mb-4">
     <a [routerLink]="'/movie/' + movie.id">
       <img
         loading="lazy"
@@ -19,6 +19,7 @@
         </span>
         <div class="progress-value">80%</div>
       </div> -->
+      <circle-progress [percent]="movie.vote_average * 10"></circle-progress>
     </div>
     <div class="like">
       <button class="bg-transparent" (click)="addToCart(movie)">

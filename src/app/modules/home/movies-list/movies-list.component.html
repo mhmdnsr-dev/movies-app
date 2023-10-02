@@ -16,7 +16,7 @@
   </div>
 
   <ng-container *ngIf="movies.length">
-    <ul class="d-flex gap-4 justify-content-center flex-wrap">
+    <ul class="d-flex row-gap-5 column-gap-4 justify-content-center flex-wrap">
       <li *ngFor="let item of movies">
         <app-movie-card [movie]="item"></app-movie-card>
       </li></ul
