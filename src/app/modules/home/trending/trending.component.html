@@ -1,4 +1,5 @@
-<div class="mt-5 mb-5 bg-white me-4 ms-4 p-4 rounded-3">
+<div *ngIf="!query" class="mt-5 mb-5 bg-white me-4 ms-4 p-4 rounded-3">
+  <p class="h3 mb-1 trending text-primary mb-4">Trending</p>
   <div
     *ngIf="!trending.length"
     class="d-flex justify-content-center text-primary">
@@ -7,7 +8,6 @@
     </div>
   </div>
 
-  <p class="h3 mb-1 trending text-primary mb-3">Trending</p>
   <div
     id="carouselExampleSlidesOnly"
     class="carousel slide hero-carousel"

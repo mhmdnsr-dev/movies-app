@@ -1,3 +1,8 @@
 ul {
   padding: 0;
 }
+
+.page-link:focus {
+  box-shadow: none;
+  background-color: unset;
+}

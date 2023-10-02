@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MoviesService } from '../movies.service';
 import { Movie } from '../../shared/movie';
 import { TmdbRes } from '../../shared/tmdb-res';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-trending',
@@ -9,21 +9,32 @@ import { TmdbRes } from '../../shared/tmdb-res';
   styleUrls: ['./trending.component.css'],
 })
 export class TrendingComponent {
-  constructor(private sharedMovies: MoviesService) {}
-
   trending: Movie[] = [];
-  ngOnInit() {
-    // console.log($());
-    this.sharedMovies.trending.subscribe(
-      (value: Object) => {
-        console.log(value);
-        const data = value as TmdbRes;
-        this.trending = data.results;
-      },
-      err => {
-        console.log(err);
+
+  query: string = '';
+  constructor(private moviesService: MoviesService) {}
+
+  async ngOnInit() {
+    this.moviesService.getQuery.subscribe((q: string) => {
+      this.query = q;
+    });
+
+    const res: Response = await fetch(
+      `https://api.themoviedb.org/3/trending/movie/day?language=en-US`,
+      {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2NmMjYxMTEwNDhmOTI5ODBiMTBkMGIyZjBjNjNjZCIsInN1YiI6IjY1MTAwNGU0MjZkYWMxMDBlYjFhMTcwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eZYQsGb-WbKHowHfR3NcpfLkOFMJNJhV6XMon4aVHhc',
+        },
       }
     );
+
+    const data: TmdbRes = await res.json();
+    this.trending = data.results;
+
+    console.log('trending', data);
   }
 
   slising(s: number, e: number) {

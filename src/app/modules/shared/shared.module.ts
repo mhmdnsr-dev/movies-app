@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { WatchModule } from '../watch/watch.module';
 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { WatchModule } from '../watch/watch.module';
     NotFoundComponent,
     FooterComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule,WatchModule],
-  exports: [HeaderComponent, FooterComponent, MovieCardComponent],
+  imports: [CommonModule, RouterModule, HttpClientModule],
+  exports: [HeaderComponent, FooterComponent, MovieCardComponent, FormsModule],
 })
 export class SharedModule {}

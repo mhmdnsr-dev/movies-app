@@ -7,5 +7,11 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./hero-section.component.css'],
 })
 export class HeroSectionComponent {
-  constructor() {}
+  query: string = '';
+  constructor(private moviesService: MoviesService) {}
+
+  queryHandler() {
+    this.moviesService.setQuery = this.query;
+    // this.query = '';
+  }
 }

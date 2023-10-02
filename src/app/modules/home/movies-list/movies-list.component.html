@@ -1,15 +1,57 @@
 <div class="mt-5 mb-5 bg-white me-4 ms-4 p-4 rounded-3">
-  <div *ngIf="!popular" class="d-flex justify-content-center text-primary">
+  <p class="h3 mb-1 popular text-primary mb-4">
+    {{ query ? 'You are saerch for: ' + query : "What's Popular" }}
+  </p>
+  <div
+    *ngIf="!movies.length"
+    class="d-flex justify-content-center text-primary">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
 
-  <ng-container *ngIf="popular">
-    <p class="h3 mb-1 popular text-primary mb-3">What's Popular</p>
+  <ng-container *ngIf="movies.length">
     <ul class="d-flex gap-4 justify-content-center flex-wrap">
-      <li *ngFor="let item of popular">
+      <li *ngFor="let item of movies">
         <app-movie-card [movie]="item"></app-movie-card>
       </li></ul
   ></ng-container>
+  <nav aria-label="Page navigation example" class="pt-5">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" ngClass="{{ page <= 1 ? 'disabled' : '' }}">
+        <button class="page-link" (click)="paginationTo(page - 1)">
+          Previous
+        </button>
+      </li>
+      <li class="page-item">
+        <button class="page-link active">{{ page }}</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" (click)="paginationTo(page + 1)">
+          {{ page + 1 }}
+        </button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" (click)="paginationTo(page + 2)">
+          {{ page + 2 }}
+        </button>
+      </li>
+      <li class="page-item">
+        <button class="page-link">...</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" (click)="paginationTo(200)">
+          {{ totalPages }}
+        </button>
+      </li>
+      <li class="page-item">
+        <button
+          class="page-link"
+          ngClass="{{ page >= totalPages ? 'disabled' : '' }}"
+          (click)="paginationTo(page + 1)">
+          Next
+        </button>
+      </li>
+    </ul>
+  </nav>
 </div>
