@@ -18,7 +18,7 @@
         <li class="nav-item">
           <a
             style="color: #bdd6ea"
-            class="h6 text-decoration-none"
+            class="btn btn-primary position-relative h4 mb-0"
             routerLinkActive="text-dark"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLink="/"
@@ -26,7 +26,7 @@
             >Home</a
           >
         </li>
-        <li class="nav-item ms-auto">
+        <!-- <li class="nav-item ms-auto">
           <a
             style="color: #bdd6ea"
             class="h6 text-decoration-none"
@@ -36,11 +36,26 @@
             Watch list &nbsp;
             <i class="fa-solid fa-heart fa-lg" style="color: #93d1e0"></i>
           </a>
+        </li> -->
+
+        <li class="nav-item ms-auto">
+          <a
+            href="#"
+            class="btn btn-primary position-relative h4 mb-0"
+            routerLinkActive="text-dark"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLink="watch-list">
+            Watch List
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{ cartItems.length }}
+            </span>
+          </a>
         </li>
         <li class="nav-item">
           <a
             style="color: #bdd6ea"
-            class="h6 text-decoration-none"
+            class="btn btn-primary position-relative h4 mb-0"
             routerLinkActive="text-dark"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLink="pricing"
@@ -50,7 +65,7 @@
         <li class="nav-item">
           <a
             style="color: #bdd6ea"
-            class="h6 text-decoration-none"
+            class="btn btn-primary position-relative h4 mb-0"
             routerLinkActive="text-dark"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLink="about"

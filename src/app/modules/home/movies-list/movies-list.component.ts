@@ -21,8 +21,6 @@ export class MoviesListComponent {
       this.query = q;
       const data: TmdbRes = await this.getMovies();
       !data.results.length ? (this.notFound = true) : (this.notFound = false);
-      console.log(data);
-      console.log(this.notFound);
       this.movies = data.results;
       this.totalPages = data.total_pages < 200 ? data.total_pages : 200;
       this.page = 1;

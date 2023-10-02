@@ -1,1 +1,59 @@
+.watchlist {
+  padding: calc(3rem + 65px) 3rem 3rem;
+  min-height: calc(100vh - 64px);
+}
 
+.rating {
+  margin-top: 1rem;
+  width: 120px;
+  height: 24px;
+  position: relative;
+  background-color: gray;
+}
+
+.rating progress.rating-bg {
+  -webkit-appearance: none;
+  -moz-appearence: none;
+  appearance: none;
+  border: none;
+  display: inline-block;
+  height: 24px;
+  width: 100%;
+  color: rgb(0, 119, 255);
+}
+
+.rating progress.rating-bg::-webkit-progress-value {
+  background-color: rgb(0, 119, 255);
+}
+
+.rating progress.rating-bg::-moz-progress-bar {
+  background-color: rgb(0, 119, 255);
+}
+
+.rating svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  position: relative;
+}
+
+.like {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(20%, 280px);
+  z-index: 99;
+}
+
+.rating-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-20%, 270px);
+  z-index: 99;
+}

@@ -9,12 +9,26 @@ import { CartElementViewService } from '../../cart-element-view.service';
 })
 export class MovieCardComponent {
   @Input() movie!: Movie;
-  isLiked: boolean = false;
-  constructor(private cartElementViewService:CartElementViewService ){}
+  cartItems: Movie[] = [];
+  isLiked!: boolean;
+  constructor(private cartElementViewService: CartElementViewService) {
+    this.cartElementViewService.getArray().subscribe(value => {
+      this.cartItems = value;
+    });
+  }
+
+  ngOnInit() {
+    this.colorBtn();
+  }
+
   addToCart(movie: Movie) {
-    var movieElement = this.cartElementViewService.addObject(movie);
-    this.isLiked = true; 
-    console.log(movieElement)
-    console.log(this.isLiked)
+    this.cartElementViewService.addObject(movie);
+    this.colorBtn();
+  }
+
+  colorBtn() {
+    this.isLiked = this.cartItems.find(m => m.id === this.movie.id)
+      ? true
+      : false;
   }
 }
