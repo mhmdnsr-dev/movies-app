@@ -40,6 +40,12 @@ import { FormsModule } from '@angular/forms';
       outerStrokeColor: '#1acb75',
     }),
   ],
-  exports: [HeaderComponent, FooterComponent, MovieCardComponent, FormsModule],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    MovieCardComponent,
+    FormsModule,
+    NgCircleProgressModule,
+  ],
 })
 export class SharedModule {}
