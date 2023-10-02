@@ -5,11 +5,13 @@
     </p>
     <div *ngFor="let movie of cartItems" class="d-flex gap-3 w-50">
       <div class="image">
+<a [routerLink]="'/movie/' + movie.id">
         <img
           class="rounded-2"
           [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
           style="width: 250px; height: 300px"
           alt="Item Image" />
+          </a>
 
         <div class="rating-2">
           <circle-progress

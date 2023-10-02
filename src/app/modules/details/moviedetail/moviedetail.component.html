@@ -1,0 +1,65 @@
+<div class="details">
+  <div *ngIf="moviedetail">
+    <div class="card mb-3 m-auto mt-5" style="max-width: 1100px">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + moviedetail.poster_path"
+            class="img-fluid rounded-start"
+            alt="..." />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title h3">{{ moviedetail.title }}</h5>
+            <span>{{ moviedetail.release_date | date }}</span>
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <div>
+                <svg style="display: none">
+                  <defs>
+                    <symbol id="fivestars">
+                      <path
+                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                        fill="#fff"
+                        fill-rule="evenodd" />
+                      <path
+                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                        transform="translate(24)" />
+                      <path
+                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                        transform="translate(48)" />
+                      <path
+                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                        transform="translate(72)" />
+                      <path
+                        d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z M0 0 h24 v24 h-24 v-24"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                        transform="translate(96)" />
+                    </symbol>
+                  </defs>
+                </svg>
+                <div class="rating">
+                  <progress
+                    class="rating-bg"
+                    [value]="moviedetail.vote_average"
+                    max="10"></progress>
+                  <svg><use xlink:href="#fivestars" /></svg>
+                </div>
+              </div>
+              <span class="align-self-end">{{ moviedetail.vote_count }}</span>
+            </div>
+            <p class="card-text">{{ moviedetail.overview }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-recommend [movieid]="moviedetail.id"></app-recommend>
+  </div>
+</div>

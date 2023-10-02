@@ -9,7 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
-
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -47,6 +46,7 @@ import { FormsModule } from '@angular/forms';
     MovieCardComponent,
     FormsModule,
     NgCircleProgressModule,
+    RouterModule,
   ],
 })
 export class SharedModule {}
