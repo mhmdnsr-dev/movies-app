@@ -55,11 +55,30 @@
               <span class="align-self-end">{{ moviedetail.vote_count }}</span>
             </div>
             <p class="card-text">{{ moviedetail.overview }}</p>
+            <a href="{{ moviedetail.homepage }}" target="_blank" class="mt-3">
+              <button class="btn bg-primary p-1 text-white">
+                Home Page
+              </button></a
+            >
+            <ul class="p-0 d-flex gap-2 mt-4">
+              <li
+                *ngFor="let item of moviedetail.genres"
+                class="bg-info p-2 rounded-1">
+                {{ item.name }}
+              </li>
+            </ul>
+            <div class="mt-5">
+              <img
+                [src]="
+                  'https://image.tmdb.org/t/p/w200' + moviedetail.backdrop_path
+                "
+                alt="" />
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <app-recommend [movieid]="moviedetail.id"></app-recommend>
+    <app-recommend [movieid]="movieid"></app-recommend>
   </div>
 </div>

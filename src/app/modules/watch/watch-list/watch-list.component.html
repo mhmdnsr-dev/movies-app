@@ -5,13 +5,13 @@
     </p>
     <div *ngFor="let movie of cartItems" class="d-flex gap-3 w-50">
       <div class="image">
-<a [routerLink]="'/movie/' + movie.id">
-        <img
-          class="rounded-2"
-          [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-          style="width: 250px; height: 300px"
-          alt="Item Image" />
-          </a>
+        <a [routerLink]="'/movie/' + movie.id">
+          <img
+            class="rounded-2"
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+            style="width: 250px; height: 300px"
+            alt="Item Image" />
+        </a>
 
         <div class="rating-2">
           <circle-progress
@@ -19,8 +19,8 @@
         </div>
         <div class="like">
           <button class="bg-transparent" (click)="deleteItem(movie)">
-            <span [style.color]="'#191bab'">
-              <i class="fa-solid fa-heart fa-2xl"></i>
+            <span [style.color]="'rgb(133 34 34)'">
+              <i class="fa-solid fa-trash fa-2xl"></i>
             </span>
           </button>
         </div>

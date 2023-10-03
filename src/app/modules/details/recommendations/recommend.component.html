@@ -3,9 +3,9 @@
   <div
     *ngIf="!movies.length"
     class="d-flex justify-content-center text-primary">
-    <div class="spinner-border" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
+    <!-- <div class="spinner-border" role="status"> -->
+    <span class="h6">No recommendations found</span>
+    <!-- </div> -->
   </div>
 
   <ul *ngIf="movies" class="d-flex gap-4 justify-content-center flex-wrap">
